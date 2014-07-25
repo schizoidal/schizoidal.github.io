@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My First App</title>
-  <script type="text/javascript" src="//code.jquery.com/jquery.min.js"></script>
-  <script type="text/javascript" src="https://www.gstatic.com/cast/js/receiver/1.0/cast_receiver.js"></script>
+  <title>Example minimum receiver</title>
+  <script src="//www.gstatic.com/cast/sdk/libs/receiver/2.0.0/cast_receiver.js"></script>
 </head>
 <body>
-    <div id="texty">Hello World!</div>
+  <video id='media'/>
+  <script>
+      window.onload = function () {
+          window.mediaElement = document.getElementById('media');
+          window.mediaManager = new cast.receiver.MediaManager(window.mediaElement);
+          window.castReceiverManager = cast.receiver.CastReceiverManager.getInstance();
+          window.castReceiverManager.start();
+      }
+  </script>
+  <div id="texty">Hello World!</div>
 </body>
 </html>
